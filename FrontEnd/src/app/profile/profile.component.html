@@ -1,0 +1,72 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="red">
+    <client-app-sidebar></client-app-sidebar>
+  </div>
+  <div class="main-panel">
+    <app-navbar></app-navbar>
+    <div class="panel-header panel-header-sm">
+    </div>
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 style="text-align: center" class="title">Personal Information</h5>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <center>
+                        <label style="text-align: center">First Name :</label>
+                        <input style="text-align: center" type="text" class="form-control"
+                               [(ngModel)]="firstName"
+                               name="firstName">
+                      </center>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <center>
+                        <label style="text-align: center">Last Name :</label>
+                        <input style="text-align: center" type="text" class="form-control"
+                               [(ngModel)]="lastName"
+                               name="lastName">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <center>
+                        <label style="text-align: center">Email :</label>
+                        <input style="text-align: center" type="email" class="form-control"
+                               [(ngModel)]="email"
+                               name="email">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <center>
+                        <button type="button" class="btn btn-primary btn-round" (click)="update()">Update</button>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="red">
+    <client-app-sidebar></client-app-sidebar>
+  </div>
+  <div class="main-panel">
+    <app-navbar></app-navbar>
+    <div class="panel-header panel-header-sm">
+    </div>
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 style="text-align: center" class="card-title">My Cart</h4>
+              <h6 *ngIf="products.length>0" style="text-align: center" class="card-title">Total : {{finalTotal}} MAD</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table *ngIf="products.length>0 else empty" class="table">
+                  <thead class=" text-primary">
+                  <tr style="text-align: center">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let product of products; let i = index" style="text-align: center">
+                    <td>{{i+1}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}} MAD</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.total}} MAD</td>
+                    <td>
+                      <button (click)="incrementQuantity(product)" data-toggle="tooltip" data-placement="top"
+                              title="Increment Quantity" name="increment" style="margin-right: 8px;"
+                              class="btn btn-success btn-icon btn-round"><i class="now-ui-icons ui-1_simple-add"></i>
+                      </button>
+                      <button (click)="decrementQuantity(product)" data-toggle="tooltip" data-placement="top"
+                              title="Decrement Quantity" name="decrement" style="margin-right: 8px;"
+                              class="btn btn-primary btn-icon btn-round"><i class="now-ui-icons ui-1_simple-delete"></i>
+                      </button>
+                      <button (click)="deleteProduct(product)" data-toggle="tooltip" data-placement="top"
+                              title="Delete Item" name="delete" style="margin-right: 8px;"
+                              class="btn btn-danger btn-icon btn-round"><i class="now-ui-icons ui-1_simple-remove"></i>
+                      </button>
+                      <button (click)="viewProductPhoto(product)" data-toggle="tooltip" data-placement="top"
+                              title="View Photo" name="view" style="margin-right: 8px;"
+                              class="btn btn-warning btn-icon btn-round"><i class="now-ui-icons media-1_album"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <ng-template #empty>
+                  <div>
+                    <p style="text-align: center">The cart is empty !</p>
+                  </div>
+                </ng-template>
+              </div>
+
+              <div *ngIf="products.length>0" class="col-md-12">
+                <div class="form-group">
+                  <center>
+                    <button type="button" class="btn btn-primary btn-round" (click)="checkOut()">Check Out</button>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>

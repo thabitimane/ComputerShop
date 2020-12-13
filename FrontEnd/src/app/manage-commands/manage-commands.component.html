@@ -1,0 +1,107 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="red">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="main-panel">
+    <app-navbar></app-navbar>
+    <div class="panel-header panel-header-sm">
+    </div>
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 style="text-align: center" class="card-title">Pending Commands List</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table *ngIf="pendingCommands.length>0 else empty" class="table">
+                  <thead class=" text-primary">
+                  <tr style="text-align: center">
+                    <th>Id</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let command of pendingCommands; let i = index" style="text-align: center">
+                    <td>{{i+1}}</td>
+                    <td>{{command.user}}</td>
+                    <td>{{command.date}}</td>
+                    <td>{{command.time}}</td>
+                    <td>{{command.address}} MAD</td>
+                    <td>{{command.status}}</td>
+                    <td>
+                      <button (click)="completeCommand(command.id)" data-toggle="tooltip" data-placement="top" title="Complete Command" name="complete" style="margin-right: 8px;"
+                              class="btn btn-success btn-icon btn-round"><i class="now-ui-icons ui-1_send"></i>
+                      </button>
+                      <button (click)="viewCommandItems(command.id)" data-toggle="tooltip" data-placement="top" title="View Items" name="view"
+                              class="btn btn-info btn-icon btn-round"><i class="now-ui-icons files_paper"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <ng-template #empty>
+                  <div>
+                    <p style="text-align: center">The list is empty !</p>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 style="text-align: center" class="card-title">Processed Commands List</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table *ngIf="processedCommands.length>0 else empty" class="table">
+                  <thead class=" text-primary">
+                  <tr style="text-align: center">
+                    <th>Id</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let command of processedCommands; let i = index" style="text-align: center">
+                    <td>{{i+1}}</td>
+                    <td>{{command.user}}</td>
+                    <td>{{command.date}}</td>
+                    <td>{{command.time}}</td>
+                    <td>{{command.address}} MAD</td>
+                    <td>{{command.status}}</td>
+                    <td>
+                      <button (click)="viewCommandItems(command.id)" data-toggle="tooltip" data-placement="top" title="View Photo" name="viewPhoto"
+                              class="btn btn-info btn-icon btn-round"><i class="now-ui-icons files_paper"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <ng-template #empty>
+                  <div>
+                    <p style="text-align: center">The list is empty !</p>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>

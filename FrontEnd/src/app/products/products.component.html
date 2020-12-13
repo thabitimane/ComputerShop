@@ -1,0 +1,77 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="red">
+    <client-app-sidebar></client-app-sidebar>
+  </div>
+  <div class="main-panel">
+    <app-navbar></app-navbar>
+
+    <div class="panel-header panel-header-sm">
+    </div>
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 style="text-align: center" class="card-title">Products</h4>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <center>
+                        <label style="text-align: center">Searching Query :</label>
+                        <input style="text-align: center" type="text" class="form-control"
+                               [(ngModel)]="query"
+                               name="query">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <center>
+                        <button type="button" class="btn btn-primary btn-round" (click)="search()">Search</button>
+                      </center>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <center>
+                        <button type="button" class="btn btn-warning btn-round" (click)="showAll()">Show All</button>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="row">
+
+                <div *ngFor="let product of products" class="col-md-3">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 style="text-align: center" class="card-title">{{product.name}}</h4>
+                      <h5 style="text-align: center" class="card-title">{{product.price}} MAD</h5>
+                    </div>
+                    <div class="card-body">
+                      <img
+                        src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011?wid=892&hei=820&&qlt=80&.v=1603406905000"/>
+                      <center>
+                        <button type="button" class="btn btn-info btn-round" (click)="addToCart(product.id)">Add To Cart
+                        </button>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>

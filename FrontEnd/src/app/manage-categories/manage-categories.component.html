@@ -1,0 +1,86 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="red">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="main-panel">
+    <app-navbar></app-navbar>
+
+    <div class="panel-header panel-header-sm">
+    </div>
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 style="text-align: center" class="title">Manage Categories</h5>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <center>
+                        <label style="text-align: center">Category Name :</label>
+                        <input style="text-align: center" type="text" class="form-control"
+                               [(ngModel)]="categoryName"
+                               name="categoryName">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <center>
+                        <button type="button" class="btn btn-primary btn-round" (click)="addCategory()">Add</button>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 style="text-align: center" class="card-title">Categories List</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table *ngIf="categories.length>0 else empty" class="table">
+                  <thead class=" text-primary">
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let category of categories; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{category.name}}</td>
+                    <td>
+                      <button (click)="deleteCategory(category.id)" data-toggle="tooltip" data-placement="top"
+                              title="Delete Category" name="delete" style="margin-right: 8px;"
+                              class="btn btn-danger btn-icon btn-round"><i class="now-ui-icons ui-1_simple-remove"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <ng-template #empty>
+                  <div>
+                    <p style="text-align: center">The list is empty !</p>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>
