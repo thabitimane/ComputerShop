@@ -12,16 +12,16 @@
 ![](https://img.shields.io/badge/nodejs-10.13.0-green)
 
 ## Description
-This is a web application of a computer shop, it has two users, the shop administrator and the client.
-The admin can manage categories, products, commands and clients' accounts, the client can add items to his cart then check out anf follow his commands.
+This project is a web application of a computer shop, it has two users, the shop administrator and the client.
+The admin can manage categories, products, commands and clients' accounts, the client can add items to his cart then check out and follow his commands.
 
 ## Built With
-* [gson](https://github.com/google/gson)
+* [Gson](https://github.com/google/gson)
 * [sparkjava](https://github.com/perwendel/spark)
 * [MySQL](https://www.mysql.com)
 * [Angular](https://angular.io)
 * [Node.js](https://nodejs.org/en)
-* [java-jwt](https://github.com/auth0/java-jwt)
+* [Java-jwt](https://github.com/auth0/java-jwt)
 
 ## Features
 + The administrator :
